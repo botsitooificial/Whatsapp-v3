@@ -35,7 +35,7 @@ export async function handler(chatUpdate) {
     return;
   }
   if (global.db.data == null) await global.loadDatabase();
-  /* Creditos a Otosaka (https://wa.me/51993966345) */
+  /* Creditos a GeriPium (https://wa.me/56945086055) */
 
   if (global.chatgpt.data === null) await global.loadChatgptDB();
 
@@ -52,7 +52,7 @@ export async function handler(chatUpdate) {
     try {
       // TODO: use loop to insert data instead of this
       const user = global.db.data.users[m.sender];
-      /* Creditos a Otosaka (https://wa.me/51993966345) */
+      /* Creditos a GeriPium (https://wa.me/56945086055) */
 
       const chatgptUser = global.chatgpt.data.users[m.sender];
       if (typeof chatgptUser !== 'object') {
@@ -990,7 +990,7 @@ export async function handler(chatUpdate) {
         if (!('restrict' in settings)) settings.restrict = false;
         if (!('antiCall' in settings)) settings.antiCall = false;
         if (!('antiPrivate' in settings)) settings.antiPrivate = false;
-	if (!('modejadibot' in settings)) settings.modejadibot = true;
+	if (!('modejadibot' in settings)) settings.modejadibot = false;
         if (!('antispam' in settings)) settings.antispam = false;
 	if (!('audios_bot' in settings)) settings.audios_bot = true;  
 	if (!('modoia' in settings)) settings.modoia = false;      
@@ -1002,7 +1002,7 @@ export async function handler(chatUpdate) {
           restrict: false,
           antiCall: false,
           antiPrivate: false,
-	  modejadibot: true,
+	  modejadibot: false,
           antispam: false,
 	  audios_bot: true,
 	  modoia: false
@@ -1184,7 +1184,7 @@ const messageText = `
 —◉ *Aviso ${messageNumber}/3 (Total: 3)*
 —◉ ${user.bannedReason ? `\n*Motivo:* ${user.bannedReason}` : '*Motivo:* Sin especificar'}
 —◉ *Si consideras que esto es un error y cuentas con pruebas, puedes comunicarte con el propietario del Bot para apelar la suspensión.*
-—◉ *Contacto para apelaciones:* wa.me/5219992095479
+—◉ *Contacto para apelaciones:* wa.me/51955095498
 ╚═════════════════════╝
                `.trim();
               m.reply(messageText);
@@ -1500,8 +1500,8 @@ export async function callUpdate(callUpdate) {
         const callmsg = await mconn.conn.reply(nk.from, `Hola *@${nk.from.split('@')[0]}*, las ${nk.isVideo ? 'videollamadas' : 'llamadas'} no están permitidas, serás bloqueado.\n-\nSi accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee!`, false, {mentions: [nk.from]});
         // let data = global.owner.filter(([id, isCreator]) => id && isCreator)
         // await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑;;;\nFN:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nORG:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nTITLE:\nitem1.TEL;waid=5219992095479:+521 999 209 5479\nitem1.X-ABLabel:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑\nEND:VCARD`;
-        await mconn.conn.sendMessage(nk.from, {contacts: {displayName: '𝐁𝐫𝐮𝐧𝐨 𝐒𝐨𝐛𝐫𝐢𝐧𝐨 👑', contacts: [{vcard}]}}, {quoted: callmsg});
+        const vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Richetti;;;\nFN:Richetti\nORG:Richetti\nTITLE:\nitem1.TEL;waid=51955095498:+51955095498\nitem1.X-ABLabel:Richetti\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:Richetti\nEND:VCARD`;
+        await mconn.conn.sendMessage(nk.from, {contacts: {displayName: 'Richetti', contacts: [{vcard}]}}, {quoted: callmsg});
         await mconn.conn.updateBlockStatus(nk.from, 'block');
       }
     }
@@ -1539,19 +1539,19 @@ let date = d.toLocaleDateString('es', { day: 'numeric', month: 'long', year: 'nu
 
 global.dfail = (type, m, conn) => {
   const msg = {
-    rowner: '*[ ⚠️ ] Este comando solo puede ser utilizado por el/la propietario(a) (owner) del Bot.*',
-    owner: '*[ ⚠️ ] Este comando solo puede ser utilizado por el/la propietario(a) (owner) del Bot.*',
-    mods: '*[ ⚠️ ] Este comando solo puede ser utilizado por moderadores y el/la propietario(a) (owner) del Bot.*',
-    premium: '*[ ⚠️ ] Este comando solo puede ser utilizado por usarios premium y el/la propietario(a) (owner) del Bot.*',
-    group: '*[ ⚠️ ] Este comando solo puede ser utilizado en grupos.*',
-    private: '*[ ⚠️ ] Este comando solo puede ser utilizado en el chat privado del Bot.*',
-    admin: '*[ ⚠️ ] Este comando solo puede ser usado por admins del grupo.*',
-    botAdmin: '*[ ⚠️ ] Para poder usar este comando es necesario que yo sea admin.*',
-    unreg: '*[ 🛑 Hey!! Alto, no estas registrado 🛑 ]*\n\n*—◉ Para poder usar este comando debes registrarte, usa el comando:*\n*➣ #verificar nombre.edad*',
-    restrict: '*[ ⚠️ ] Este comando esta restringido/desactivado por desición del propietario(a) (owner) del Bot.*',
-  }[type];
+        rowner: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐏𝐎𝐑 𝐄𝐋/𝐋𝐀 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎/𝐀 (𝐎𝐖𝐍𝐄𝐑) 𝐃𝐄𝐋 𝐁𝐎𝐓*\n\n\n*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] *𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐁𝐘 𝐓𝐇𝐄 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐓𝐇𝐄 𝐁𝐎𝐓*',
+        owner: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐏𝐎𝐑 𝐄𝐋/𝐋𝐀 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎/𝐀 (𝐎𝐖𝐍𝐄𝐑) 𝐃𝐄𝐋 𝐁𝐎𝐓*\n\n\n*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] *𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐁𝐘 𝐓𝐇𝐄 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐓𝐇𝐄 𝐁𝐎𝐓*',
+        mods: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐏𝐎𝐑 𝐄𝐋/𝐋𝐀 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎/𝐀 (𝐎𝐖𝐍𝐄𝐑) 𝐃𝐄𝐋 𝐁𝐎𝐓*\n\n\n*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] *𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐁𝐘 𝐓𝐇𝐄 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐓𝐇𝐄 𝐁𝐎𝐓*',
+        premium: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐏𝐎𝐑 𝐄𝐋/𝐋𝐀 𝐏𝐑𝐎𝐏𝐈𝐄𝐓𝐀𝐑𝐈𝐎/𝐀 (𝐎𝐖𝐍𝐄𝐑) 𝐃𝐄𝐋 𝐁𝐎𝐓*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐁𝐘 𝐓𝐇𝐄 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐓𝐇𝐄 𝐁𝐎𝐓*',
+        group: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐄𝐍 𝐆𝐑𝐔𝐏𝐎𝐒*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐈𝐍 𝐆𝐑𝐎𝐔𝐏𝐒*',
+        private: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐄𝐍 𝐂𝐇𝐀𝐓 𝐏𝐑𝐈𝐕𝐀𝐃𝐎 𝐃𝐄𝐋 𝐁𝐎𝐓*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐈𝐍 𝐓𝐇𝐄 𝐁𝐎𝐓𝐒 𝐏𝐑𝐈𝐕𝐀𝐓𝐄*',
+        admin: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐒𝐎𝐋𝐎 𝐏𝐔𝐄𝐃𝐄 𝐒𝐄𝐑 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐃𝐎 𝐏𝐎𝐑 𝐀𝐃𝐌𝐈𝐍𝐒 𝐃𝐄𝐋 𝐆𝐑𝐔𝐏𝐎*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐂𝐀𝐍 𝐎𝐍𝐋𝐘 𝐁𝐄 𝐔𝐒𝐄𝐃 𝐁𝐘 𝐆𝐑𝐎𝐔𝐏 𝐀𝐃𝐌𝐈𝐍𝐒*',
+        botAdmin: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐃𝐕𝐈𝐄𝐑𝐓𝐄 𝐐𝐔𝐄 𝐏𝐀𝐑𝐀 𝐏𝐎𝐃𝐄𝐑 𝐔𝐒𝐀𝐑 𝐄𝐒𝐓𝐄 𝐂𝐎𝐌𝐀𝐍𝐃𝐎 𝐄𝐒 𝐍𝐄𝐂𝐄𝐒𝐀𝐑𝐈𝐎 𝐐𝐔𝐄 𝐄𝐋 𝐁𝐎𝐓 𝐒𝐄𝐀 𝐀𝐃𝐌𝐈𝐍, 𝐀𝐒𝐂𝐄𝐍𝐃𝐄𝐑 𝐀 𝐀𝐃𝐌𝐈𝐍 𝐄𝐒𝐓𝐄 𝐍𝐔𝐌𝐄𝐑𝐎*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐖𝐀𝐑𝐍𝐒 𝐓𝐇𝐀𝐓 𝐈𝐍 𝐎𝐑𝐃𝐄𝐑 𝐓𝐎 𝐔𝐒𝐄 𝐓𝐇𝐈𝐒 𝐂𝐎𝐌𝐌𝐀𝐍𝐃 𝐈𝐓 𝐈𝐒 𝐍𝐄𝐂𝐄𝐒𝐒𝐀𝐑𝐘 𝐅𝐎𝐑 𝐓𝐇𝐄 𝐁𝐎𝐓 𝐓𝐎 𝐁𝐄 𝐀𝐃𝐌𝐈𝐍, 𝐏𝐑𝐎𝐌𝐎𝐓𝐄 𝐓𝐇𝐈𝐒 𝐍𝐔𝐌𝐁𝐄𝐑 𝐓𝐎 𝐀𝐃𝐌𝐈𝐍*',
+        unreg: '*[ 🛑 𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐓𝐄 𝐀𝐕𝐈𝐒𝐀 𝐐𝐔𝐄 𝐍𝐎 𝐄𝐒𝐓𝐀𝐒 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐀𝐃𝐎 🛑 ]*\n\n*—◉ 𝙿𝙰𝚁𝙰 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙳𝙴𝙱𝙴𝚂 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙰𝚁𝚃𝙴, 𝚄𝚂𝙰 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾*\n*➣ /reg nombre.edad*\n\n\n*[ 🛑 *𝐌𝐈𝐂𝐇𝐈 𝐁𝐎𝐓 𝐀𝐋𝐄𝐑𝐓𝐒 𝐘𝐎𝐔 𝐓𝐇𝐀𝐓 𝐘𝐎𝐔 𝐀𝐑𝐄 𝐍𝐎𝐓 𝐑𝐄𝐆𝐈𝐒𝐓𝐄𝐑𝐄𝐃* 🛑 ] *TO USE THIS COMMAND YOU MUST REGISTER USING THE COMMAND\n/reg name.age*',
+        restrict: '*[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ] 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙴𝚂𝚃𝙰 𝚁𝙴𝚂𝚃𝚁𝙸𝙽𝙶𝙸𝙳𝙾/𝙳𝙴𝚂𝙰𝙲𝚃𝙸𝚅𝙰𝙳𝙾 𝙿𝙾𝚁 𝙳𝙴𝚂𝙸𝙲𝙸𝙾𝙽 𝙳𝙴𝙻 𝙿𝚁𝙾𝙿𝙸𝙴𝚃𝙰𝚁𝙸𝙾/𝙰 (𝙾𝚆𝙽𝙴𝚁) 𝙳𝙴𝙻 𝙱𝙾𝚃*\n\n\n[ ⚠️ 𝐀𝐋𝐄𝐑𝐓𝐀 ⚠️ ]*THIS COMMAND IS REGISTERED/DISABLED BY DECISION OF THE OWNER OF THE BOT*'
+         }[type];
   const aa = {quoted: m, userJid: conn.user.jid};
-  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '[ ⚠ ] 𝐀𝐕𝐈𝐒𝐎 - 𝐀𝐋𝐄𝐑𝐓𝐀', body: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', thumbnail: imagen1, sourceUrl: 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'}}}}, aa);
+  const prep = generateWAMessageFromContent(m.chat, {extendedTextMessage: {text: msg, contextInfo: {externalAdReply: {title: '[ ⚠ ] 𝐀𝐕𝐈𝐒𝐎 - 𝐀𝐋𝐄𝐑𝐓𝐀', body: 'MichiBot', thumbnail: imagen1, sourceUrl: 'https://www.instagram.com/ceogeripium.dzn'}}}}, aa);
   if (msg) return conn.relayMessage(m.chat, prep.message, {messageId: prep.key.id});
 };
 
