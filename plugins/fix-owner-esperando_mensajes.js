@@ -8,10 +8,10 @@ const handler = async (m, { conn, usedPrefix }) => {
     return conn.sendMessage(m.chat, {text: '*[❗] Utiliza este comando directamente en el número principal del Bot.*'}, {quoted: m});
   }
   await conn.sendMessage(m.chat, {text: '*[❗] Iniciando proceso de eliminación de todos los archivos de sesión, excepto el archivo creds.json...*'}, {quoted: m});
-  const sessionPath = './MysticSession/';
+  const sessionPath = './MichiBot/';
   try {
     if (!existsSync(sessionPath)) {
-      return await conn.sendMessage(m.chat, {text: '*[❗] La carpeta MysticSession no existe o está vacía.*'}, {quoted: m});
+      return await conn.sendMessage(m.chat, {text: '*[❗] La carpeta MichiBot no existe o está vacía.*'}, {quoted: m});
     }
     const files = await fs.readdir(sessionPath);
     let filesDeleted = 0;
